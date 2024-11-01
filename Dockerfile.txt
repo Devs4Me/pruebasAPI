@@ -1,0 +1,17 @@
+# Usa una imagen base de Alpine Linux
+FROM alpine:latest
+
+# Instala bash
+RUN apk add --no-cache bash
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia los archivos locales a la imagen
+COPY . .
+
+# Exponer el puerto que Pocketbase usará
+EXPOSE 8080
+
+# Comando por defecto para ejecutar el script
+CMD ["bash", "start.sh"]
